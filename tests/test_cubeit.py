@@ -12,4 +12,16 @@ def test_cube(page: Page):
 
     result = page.locator("css=p#result")
 
-    expect(result).to_contain_text("125")    
+    expect(result).to_contain_text("125") 
+
+def test_cube2(page: Page):
+    page.goto(BASE_URL)
+
+    input = page.get_by_placeholder("enter number...")
+    input.fill("")
+
+    page.get_by_role("button", name="Cube").click()
+
+    result = page.locator("css=p#result")
+
+    expect(result).to_contain_text("Enter something!")   
